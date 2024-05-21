@@ -43,6 +43,11 @@ enable_auto_refresh = True
 refresh_interval = 24
 enable_system_updates = False
 
+[timelapse]
+output_path = /usr/data/printer_data/timelapse/
+frame_path = /usr/data/printer_data/frames/
+snapshoturl = http://localhost:4408/webcam/?action=snapshot
+
 [update_manager fluidd]
 type = web
 channel = beta
@@ -54,4 +59,28 @@ type = web
 channel = beta
 repo = mainsail-crew/mainsail
 path = /usr/data/mainsail
+
+[update_manager S66octoapp_service]
+type = git_repo
+channel = beta
+path = /usr/data/octoapp
+origin = https://github.com/crysxd/OctoApp-Plugin.git
+env = /usr/data/octoapp-env/bin/python
+requirements = requirements.txt
+install_script = install.sh
+managed_services = 
+	S66octoapp_service
+
+[announcements]
+subscriptions = 
+	octoapp.
+
+[update_manager ]
+type = git_repo
+path = /usr/data/moonraker-obico/scripts/..
+origin = 
+env = /usr/data/moonraker-obico/scripts/../../moonraker-obico-env/bin/python
+requirements = requirements.txt
+install_script = install.sh
+managed_services = 
 
