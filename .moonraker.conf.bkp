@@ -6,7 +6,7 @@ max_upload_size = 1024
 
 [file_manager]
 queue_gcode_uploads = False
-enable_object_processing = False
+enable_object_processing = True
 
 [database]
 
@@ -83,4 +83,17 @@ env = /usr/data/moonraker-obico/scripts/../../moonraker-obico-env/bin/python
 requirements = requirements.txt
 install_script = install.sh
 managed_services = 
+
+[webcam Camera]
+location = printer
+enabled = True
+service = mjpegstreamer
+target_fps = 15
+target_fps_idle = 5
+stream_url = http://192.168.50.127:8080/?action=stream
+snapshot_url = http://192.168.50.127:8080/?action=snapshot
+flip_horizontal = False
+flip_vertical = False
+rotation = 0
+aspect_ratio = 4:3
 
